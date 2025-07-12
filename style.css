@@ -374,7 +374,6 @@
   .join-now {
     background: url('./image/IMG-20250710-WA0031.jpg') center/cover no-repeat;
     color: white;
-    padding: 3rem 2rem;
     text-align: center;
     position: relative;
     min-height: 220px;
@@ -385,21 +384,33 @@
   
   .join-overlay {
     background: rgba(21,78,41,0.85);
-    border-radius: 18px;
-    padding: 2rem 2.5rem;
+    padding: 4rem 2rem 4rem 2rem;
     width: 100%;
-    margin: 0 auto;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   .join-overlay h3 {
     font-size: 2rem;
-    margin-bottom: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
     font-weight: 700;
   }
   
   .join-overlay p {
     font-size: 1.05rem;
     color: #e6e6e6;
+    margin-bottom: 0;
+  }
+  
+  .join-overlay .spacer {
+    height: 8rem;
+    flex-grow: 1;
   }
   
   .footer-content {
