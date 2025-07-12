@@ -451,7 +451,11 @@ header .donate-btn:hover {
   line-height: 1.7;
   text-decoration: none;
 }
+.about-text a{
+    text-decoration: none;
+    color: white;
 
+}
 .footer-col a {
   color: #e6c972;
   text-decoration: underline;
