@@ -108,7 +108,7 @@
   .hero-text .subtitle {
     color: #666;
     font-size: 1.1rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 4rem;
   }
   
   .primary-btn {
@@ -372,7 +372,7 @@
   }
   
   .join-now {
-    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80') center/cover no-repeat;
+    background: url('./image/IMG-20250710-WA0031.jpg') center/cover no-repeat;
     color: white;
     padding: 3rem 2rem;
     text-align: center;
@@ -388,13 +388,12 @@
     border-radius: 18px;
     padding: 2rem 2.5rem;
     width: 100%;
-    max-width: 700px;
     margin: 0 auto;
   }
   
   .join-overlay h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.7rem;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
     font-weight: 700;
   }
   
