@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Flora Saviors</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
 </head>
-
 <body>
   <header>
     <div class="header-left">
@@ -16,41 +14,45 @@
       <span class="logo-text">FLORA SAVIORS</span>
     </div>
     <nav>
-      <a href="./index.html">Home</a>
-      <a href="#">Contact</a>
-      <a href="#">About us</a>
+      <a href="#home">Home</a>
+      <a href="#about">About us</a>
+      <a href="#footer-content">Contact</a>
+      <a href="./gift-a-tree.html" target="_blank" class="gift-tree-nav-btn">Gift a Tree</a>
+      <button class="hamburger-menu" id="hamburgerMenu" aria-label="Open menu">&#9776;</button>
       <button class="donate-btn">DONATE</button>
     </nav>
+    <div class="mobile-nav-menu" id="mobileNavMenu">
+      <a href="#home">Home</a>
+      <a href="#about">About us</a>
+      <a href="#footer-content">Contact</a>
+      <a href="./gift-a-tree.html" target="_blank" class="gift-tree-nav-btn">Gift a Tree</a>
+    </div>
   </header>
 
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="hero-text">
       <h1>Our Doon Valley needs your help</h1>
       <p class="subtitle">An initiative by Flora Saviors</p>
       <a href="#help-section" class="primary-btn">Sponsor the rescue today</a>
     </div>
     <div class="hero-image">
-      <img src="./image/Doon valley.jpg" alt="Planting Trees">
+      <img src="./image/IMG-20250710-WA0031.jpg" alt="Planting Trees">
     </div>
   </section>
 
-  <section class="about">
+  <section class="about" id="about">
     <div class="section-header">
       <span class="section-underline"></span>
       <span class="section-title">Know about us</span>
     </div>
     <div class="about-content">
       <div class="about-text">
-        <h2>One Valley. One Vision.<br />8,000 Trees. Endless Impact.</h2>
+        <h2>One Valley. One Vision.<br/>8,000 Trees. Endless Impact.</h2>
         <p>
-          Flora Saviors is a <strong>non-profit organisation.</strong>We aim to preserve the beauty and green cover in
-          india through our initiative to <strong>plant trees, increase awareness and restore the rich
-            ecosystem</strong> of the city and eventually the state.Be it the melted glacier, global warming , erratic
-          weather conditions ,polluted natural resources or continuous soil erosion, we plan to fight these man-made
-          modern challanges with a conscious towards environmental restoration.
+          Flora Saviors is a <strong>non-profit organisation.</strong>We aim to preserve the beauty and green cover in india through our initiative to <strong>plant trees, increase awareness and restore the rich ecosystem</strong> of the city and eventually the state.Be it the melted glacier, global warming , erratic weather conditions ,polluted natural resources or continuous soil erosion, we plan to fight these man-made modern challanges with a conscious towards environmental restoration. 
         </p>
-
-        <button class="primary-btn"><a href="./Flora Newsletter.pdf" target="_blank" rel="noopener noreferrer">Learn More</a></button>
+        
+        <button class="primary-btn">Learn more</button>
       </div>
       <div class="about-img">
         <img src="./image/IMG_8748.PNG" alt="About Planting" />
@@ -69,26 +71,23 @@
         <div class="cards">
           <div class="card">
             <img src="./articles/10k Trees.jpg" alt="Place 1">
-            <h4>Ferger Junior High School</h4>
+            <h4>PLACE 1</h4>
             <p>Planted 30 saplings with Ferger Junior High School, Dehradun—grateful to inspire young minds!</p>
           </div>
           <div class="card">
             <img src="./image/IMG_8749.PNG" alt="Place 2">
-            <h4>Independence Day</h4>
-            <p>On Independence Day, we planted 120 trees with Shigally Hill students—nurturing young minds and Earth.
-            </p>
+            <h4>PLACE 2</h4>
+            <p>On Independence Day, we planted 120 trees with Shigally Hill students—nurturing young minds and Earth.</p>
           </div>
           <div class="card">
             <img src="./image/DGP Ashok Kumar and SDM Alok Gupta.PNG" alt="Place 3">
-            <h4>Fruit Forest for Animals</h4>
-            <p>“Fruit Forest for Animals” launched in Dhaulas with 200 trees planted by DGP Ashok Kumar and SDM Alok
-              Gupta.</p>
+            <h4>PLACE 3</h4>
+            <p>“Fruit Forest for Animals” launched in Dhaulas with 200 trees planted by DGP Ashok Kumar and SDM Alok Gupta.</p>
           </div>
           <div class="card">
             <img src="./image/Governor Lt. Gen Gurmit Singh.PNG" alt="Place 4">
-            <h4>Project UNITREE</h4>
-            <p>Project UNITREE celebrates Unity in Diversity with a litchi tree planting by Uttarakhand Governor Lt. Gen
-              Gurmit Singh.</p>
+            <h4>PLACE 4</h4>
+            <p>Project UNITREE celebrates Unity in Diversity with a litchi tree planting by Uttarakhand Governor Lt. Gen Gurmit Singh.</p>
           </div>
         </div>
       </div>
@@ -106,44 +105,37 @@
         <div class="article-card active">
           <img src="./articles/Covid.jpg" alt="Emergency COVID Relief Work">
           <h3>Emergency COVID Relief Work</h3>
-          <a class="read-more-btn" href="https://www.instagram.com/p/CO9bd9IjfRw/?igsh=MTlxNm82cmxwcXpvag=="
-            target="_blank">Read More</a>
+          <a class="read-more-btn" href="https://www.instagram.com/p/CO9bd9IjfRw/?igsh=MTlxNm82cmxwcXpvag==" target="_blank">Read More</a>
         </div>
         <div class="article-card">
           <img src="./articles/50 plants.jpg" alt="Reviving Doon Valley">
           <h3>Reviving Doon Valley - Planting 50 Trees</h3>
-          <a class="read-more-btn" href="https://www.instagram.com/p/CSDsMYSpOnc/?igsh=d3hmNXBsb2R1MjIw"
-            target="_blank">Read More</a>
+          <a class="read-more-btn" href="https://www.instagram.com/p/CSDsMYSpOnc/?igsh=d3hmNXBsb2R1MjIw" target="_blank">Read More</a>
         </div>
         <div class="article-card">
           <img src="./articles/10k Trees.jpg" alt="Tree Plantation Campaign">
           <h3>Tree Plantation Campaign: 10,000 Trees in 100 Days</h3>
-          <a class="read-more-btn" href="https://lifebeyondnumbers.com/flora-saviours-dehradun-plantation/"
-            target="_blank">Read More</a>
+          <a class="read-more-btn" href="https://lifebeyondnumbers.com/flora-saviours-dehradun-plantation/" target="_blank">Read More</a>
         </div>
         <div class="article-card">
           <img src="./articles/Reviving Doon.jpg" alt="FICCI Flo Feature">
           <h3>FICCI Flo Feature</h3>
-          <a class="read-more-btn" href="https://www.instagram.com/p/CTG0dcxJGG7/?igsh=YmpidDZoeHFlMHI3"
-            target="_blank">Read More</a>
+          <a class="read-more-btn" href="https://www.instagram.com/p/CTG0dcxJGG7/?igsh=YmpidDZoeHFlMHI3" target="_blank">Read More</a>
         </div>
         <div class="article-card">
           <img src="./articles/Unity in diversity.jpg" alt="Revive the Lost Green Blanket">
           <h3>A Tree Plantation Drive for Unity in Diversity</h3>
-          <a class="read-more-btn" href="https://www.instagram.com/p/CjewMbzv5x-/?igsh=MWoxZThsbG0wYWN3ZA%3D%3D"
-            target="_blank">Read More</a>
+          <a class="read-more-btn" href="https://www.instagram.com/p/CjewMbzv5x-/?igsh=MWoxZThsbG0wYWN3ZA%3D%3D" target="_blank">Read More</a>
         </div>
         <div class="article-card">
           <img src="./articles/Founder article.jpg" alt="Kimari Plantation Drive">
           <h3>Article on the Founder</h3>
-          <a class="read-more-btn" href="https://www.instagram.com/tv/CX6bDhSj_xB/?igsh=ejZxcjBpYmtrc3F4"
-            target="_blank">Read More</a>
+          <a class="read-more-btn" href="https://www.instagram.com/tv/CX6bDhSj_xB/?igsh=ejZxcjBpYmtrc3F4" target="_blank">Read More</a>
         </div>
         <div class="article-card">
           <img src="./articles/UniTree.jpg" alt="Government participation in UNITREE">
           <h3>Government Participation in UNITREE Initiative</h3>
-          <a class="read-more-btn" href="https://www.instagram.com/p/CowPxalP_gx/?igsh=bWh0eTlnand4ejUz"
-            target="_blank">Read More</a>
+          <a class="read-more-btn" href="https://www.instagram.com/p/CowPxalP_gx/?igsh=bWh0eTlnand4ejUz" target="_blank">Read More</a>
         </div>
         <div class="article-card">
           <img src="./articles/India CSR.jpg" alt="India CSR & Sustainability Conclave">
@@ -161,15 +153,73 @@
     </div>
   </section>
 
+  <section class="collaborators" id="collaborators-section">
+    <div class="section-header">
+      <span class="section-underline"></span>
+      <span class="section-title">Our Collaborators</span>
+    </div>
+    <div class="collaborators-carousel">
+      <div class="collaborators-track">
+        <div class="collaborator-item">
+          <div class="collaborator-logo">
+            <img src="./image/logo.jpg" alt="Collaborator 1 Logo">
+          </div>
+          <h4>Collaborator 1</h4>
+        </div>
+        <div class="collaborator-item">
+          <div class="collaborator-logo">
+            <img src="./image/logo.jpg" alt="Collaborator 2 Logo">
+          </div>
+          <h4>Collaborator 2</h4>
+        </div>
+        <div class="collaborator-item">
+          <div class="collaborator-logo">
+            <img src="./image/logo.jpg" alt="Collaborator 3 Logo">
+          </div>
+          <h4>Collaborator 3</h4>
+        </div>
+        <div class="collaborator-item">
+          <div class="collaborator-logo">
+            <img src="./image/logo.jpg" alt="Collaborator 4 Logo">
+          </div>
+          <h4>Collaborator 4</h4>
+        </div>
+        <div class="collaborator-item">
+          <div class="collaborator-logo">
+            <img src="./image/logo.jpg" alt="Collaborator 5 Logo">
+          </div>
+          <h4>Collaborator 5</h4>
+        </div>
+        <div class="collaborator-item">
+          <div class="collaborator-logo">
+            <img src="./image/logo.jpg" alt="Collaborator 6 Logo">
+          </div>
+          <h4>Collaborator 6</h4>
+        </div>
+        <div class="collaborator-item">
+          <div class="collaborator-logo">
+            <img src="./image/logo.jpg" alt="Collaborator 7 Logo">
+          </div>
+          <h4>Collaborator 7</h4>
+        </div>
+        <div class="collaborator-item">
+          <div class="collaborator-logo">
+            <img src="./image/logo.jpg" alt="Collaborator 8 Logo">
+          </div>
+          <h4>Collaborator 8</h4>
+        </div>
+      </div>
+      <div class="collaborators-dots" id="collaboratorsDots"></div>
+    </div>
+  </section>
+
   <section class="help" id="help-section">
     <div class="help-img">
       <img src="./image/volunteer.jpg" alt="Volunteer">
     </div>
     <div class="help-content">
       <h3>How You Can Help</h3>
-      <p>There are countless ways you can help us in our quest for. You can make a donation (however big or small), join
-        our fundraiser events, or volunteer your time or simply spread the word. Every action counts — let's grow a
-        greener future together.</p>
+      <p>There are countless ways you can help us in our quest for. You can make a donation (however big or small), join our fundraiser events, or volunteer your time or simply spread the word. Every action counts — let's grow a greener future together.</p>
       <div class="actions">
         <button class="primary-btn">Donate</button>
         <button class="primary-btn">Join</button>
@@ -178,18 +228,68 @@
     </div>
   </section>
 
+  <section class="team" id="team-section">
+    <div class="section-header">
+      <span class="section-underline"></span>
+      <span class="section-title">Our Team</span>
+    </div>
+    <div class="team-grid">
+      <div class="flip-card" data-member="1">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="team-member-image">
+              <img src="./image/member1.jpg" alt="Sandeep Chauhan">
+            </div>
+            <h4>Sandeep Chauhan</h4>
+          </div>
+          <div class="flip-card-back">
+            <p>"I started Flora Saviors to raise awareness and take action."</p>
+            <a href="https://instagram.com/khushi.green" target="_blank" class="instagram-link">@khushi.green</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flip-card" data-member="3">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="team-member-image">
+              <img src="./image/member3.jpg" alt="Arya Sharma">
+            </div>
+            <h4>Arya Sharma</h4>
+          </div>
+          <div class="flip-card-back">
+            <p>"Let's restore nature together, one step at a time."</p>
+            <a href="https://instagram.com/arya.eco.vibes" target="_blank" class="instagram-link">@arya.eco.vibes</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" data-member="2">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="team-member-image">
+              <img src="./image/member2.jpg" alt="Anushka Bhandari">
+            </div>
+            <h4>Anushka Bhandari</h4>
+          </div>
+          <div class="flip-card-back">
+            <p>"Designing eco-solutions is my passion and purpose."</p>
+            <a href="https://instagram.com/shruti.codes.green" target="_blank" class="instagram-link">@shruti.codes.green</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="join-now">
     <div class="join-overlay">
       <h3>Let's Change the world, Join us now!</h3>
-      <p>Let's bring back the green glory of Dehradun! In 2021, our 'Reviving Doon Valley' mission sowed seeds of hope —
-        but in 2025, we're determined to let them bloom. This monsoon, we aim to plant 10,000 native trees across the
-        valley — not just to plant, but to nurture them over the next 3 years with dedicated care and commitment. With
-        your support, we can make this dream a living, breathing reality.</p>
+      <p>Let's bring back the green glory of Dehradun! In 2021, our 'Reviving Doon Valley' mission sowed seeds of hope — but in 2025, we're determined to let them bloom. This monsoon, we aim to plant 10,000 native trees across the valley — not just to plant, but to nurture them over the next 3 years with dedicated care and commitment. With your support, we can make this dream a living, breathing reality.</p>
     </div>
   </section>
 
   <footer>
-    <div class="footer-content">
+    <div class="footer-content" id="footer-content">
       <div class="footer-col">
         <h4>Contact Us</h4>
         <p>+91 73006 23159<br>florasaviors@gmail.com</p>
@@ -200,15 +300,29 @@
       </div>
       <div class="footer-col">
         <h4>Newsletter</h4>
-        <p>Read our newsletter now<br><a href="./Flora Newsletter.pdf" target="_blank" rel="noopener noreferrer">click
-            here to read</a></p>
+        <p>Read our newsletter now<br><a href="./Flora Newsletter.pdf" target="_blank" rel="noopener noreferrer">click here to read</a></p>
       </div>
     </div>
     <div class="footer-bg-text">FLORA SAVIORS</div>
     <p class="credit">made by devduo</p>
   </footer>
 
+  <!-- Founder Message Modal -->
+  <div id="founderModalOverlay" class="modal-overlay" style="display: none;">
+    <div class="modal-popup">
+      <button class="modal-close" id="founderModalClose" aria-label="Close">&times;</button>
+      <h2 class="modal-title">A message from our founder</h2>
+      <p class="modal-desc">Welcome to Flora Saviors! Watch these short messages from our founder to learn more about our mission and vision for a greener future.</p>
+      <div class="modal-videos">
+        <a href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank" rel="noopener" class="modal-video-link">AFORESTATION IN THE WORLD OF DEFORESTATION</a>
+        <a href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank" rel="noopener" class="modal-video-link">India CSR & Sustainability Conclave 2024</a>
+      </div>
+    </div>
+  </div>
+  <!-- Gift a Tree Notification Popup -->
+  <div id="giftTreeNotification" class="notification-popup" style="display: none;">
+    <span class="notification-message">Service will be working soon</span>
+  </div>
   <script src="index.js"></script>
 </body>
-
 </html>
