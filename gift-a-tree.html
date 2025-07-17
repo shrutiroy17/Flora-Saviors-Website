@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gift a Tree - Flora Saviors</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      background: linear-gradient(135deg, #e6f4ea 0%, #d4e8d4 50%, #c2dcc2 100%);
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(34, 139, 34, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(34, 139, 34, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(46, 139, 87, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 10% 10%, rgba(34, 139, 34, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 90% 90%, rgba(46, 139, 87, 0.1) 0%, transparent 50%);
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="trees" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="80" r="3" fill="%23228B22" opacity="0.15"/><circle cx="80" cy="20" r="2" fill="%23228B22" opacity="0.15"/><circle cx="40" cy="40" r="2.5" fill="%23228B22" opacity="0.15"/><circle cx="90" cy="70" r="2" fill="%23228B22" opacity="0.15"/><circle cx="10" cy="30" r="1.5" fill="%23228B22" opacity="0.15"/><circle cx="70" cy="90" r="2.5" fill="%23228B22" opacity="0.12"/><circle cx="30" cy="10" r="2" fill="%23228B22" opacity="0.12"/><circle cx="95" cy="40" r="1.8" fill="%23228B22" opacity="0.12"/><circle cx="5" cy="60" r="1.2" fill="%23228B22" opacity="0.12"/></pattern></defs><rect width="100" height="100" fill="url(%23trees)"/></svg>');
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="leaves" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse"><ellipse cx="50" cy="150" rx="8" ry="4" fill="%23228B22" opacity="0.08" transform="rotate(45)"/><ellipse cx="150" cy="50" rx="6" ry="3" fill="%23228B22" opacity="0.08" transform="rotate(-30)"/><ellipse cx="100" cy="100" rx="7" ry="3.5" fill="%23228B22" opacity="0.08" transform="rotate(60)"/><ellipse cx="180" cy="120" rx="5" ry="2.5" fill="%23228B22" opacity="0.08" transform="rotate(-45)"/><ellipse cx="20" cy="80" rx="6" ry="3" fill="%23228B22" opacity="0.08" transform="rotate(15)"/></pattern></defs><rect width="200" height="200" fill="url(%23leaves)"/></svg>');
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .gift-tree-container {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+    }
+
+    .gift-tree-container::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #e6c972, #154e29, #e6c972);
+      border-radius: 18px;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    .gift-tree-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .gift-tree-header h1 {
+      color: #154e29;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .gift-tree-header p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    .form-section {
+      margin-bottom: 2rem;
+    }
+
+    .form-section h2 {
+      color: #154e29;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #e6c972;
+      padding-bottom: 0.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      color: #154e29;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #e6c972;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .cost-estimation {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid #e6c972;
+    }
+
+    .cost-estimation h3 {
+      color: #154e29;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cost-estimation p {
+      color: #666;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .total-cost {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #154e29;
+    }
+
+    .pay-button {
+      background: #154e29;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s ease;
+      margin-bottom: 1rem;
+    }
+
+    .pay-button:hover {
+      background: #1e6b3a;
+    }
+
+    .payment-note {
+      text-align: center;
+      color: #666;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    /* Gift a Tree Notification Popup */
+    .notification-popup {
+      position: fixed;
+      top: 2.5vw;
+      right: 2.5vw;
+      background: #fff;
+      color: #154e29;
+      border-radius: 14px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+      padding: 1rem 1.5rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      min-width: 220px;
+      max-width: 90vw;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      animation: notificationFadeIn 0.4s cubic-bezier(0.77,0,0.175,1);
+    }
+    .notification-popup.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    @keyframes notificationFadeIn {
+      from { opacity: 0; transform: translateY(-20px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @media (max-width: 600px) {
+      .notification-popup {
+        right: 2vw;
+        left: 2vw;
+        min-width: unset;
+        max-width: 96vw;
+        padding: 0.7rem 0.5rem;
+        font-size: 0.98rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .gift-tree-container {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+
+      .gift-tree-header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="giftTreeNotification" class="notification-popup">
+    <span class="notification-message">Service will be working soon</span>
+  </div>
+  <div class="gift-tree-container">
+    <div class="gift-tree-header">
+      <h1>Gift a Tree</h1>
+      <p>Gift a Tree to Someone You Care About</p>
+    </div>
+
+    <form id="giftTreeForm">
+      <!-- Customer Information -->
+      <div class="form-section">
+        <h2>🧍 Customer Information</h2>
+        
+        <div class="form-group">
+          <label for="fullName">Full Name *</label>
+          <input type="text" id="fullName" name="fullName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+      </div>
+
+      <!-- Tree Gifting Details -->
+      <div class="form-section">
+        <h2>🌳 Tree Gifting Details</h2>
+        
+        <div class="form-group">
+          <label for="treeCount">Number of Trees *</label>
+          <input type="number" id="treeCount" name="treeCount" min="1" value="1" required>
+        </div>
+
+        <div class="cost-estimation">
+          <h3>💰 Total Cost Estimation</h3>
+          <p>Price per tree: ₹99</p>
+          <p class="total-cost">Total Cost: ₹<span id="totalCost">99</span></p>
+        </div>
+
+        <div class="form-group">
+          <label for="receiverAddress">Receiver's Address *</label>
+          <textarea id="receiverAddress" name="receiverAddress" required placeholder="Enter the complete address where the trees should be planted"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="personalNote">Personal Note (Optional)</label>
+          <textarea id="personalNote" name="personalNote" placeholder="Add a personal message or special instructions"></textarea>
+        </div>
+      </div>
+
+      <!-- Pay Button -->
+      <button type="submit" class="pay-button">Pay Now</button>
+      <p class="payment-note">You'll be redirected to payment soon (Razorpay integration coming).</p>
+    </form>
+  </div>
+
+  <script>
+    // Real-time cost calculation
+    const treeCountInput = document.getElementById('treeCount');
+    const totalCostSpan = document.getElementById('totalCost');
+    const pricePerTree = 99;
+
+    function updateTotalCost() {
+      const treeCount = parseInt(treeCountInput.value) || 0;
+      const totalCost = treeCount * pricePerTree;
+      totalCostSpan.textContent = totalCost;
+    }
+
+    treeCountInput.addEventListener('input', updateTotalCost);
+
+    // Form submission
+    document.getElementById('giftTreeForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you! Payment integration will be added soon.');
+    });
+
+    // Initialize cost on page load
+    updateTotalCost();
+
+    window.addEventListener('DOMContentLoaded', function() {
+      var popup = document.getElementById('giftTreeNotification');
+      popup.classList.add('show');
+      setTimeout(function() {
+        popup.classList.remove('show');
+      }, 3000);
+    });
+  </script>
+</body>
+</html> 
