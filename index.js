@@ -75,68 +75,77 @@ setupCampaignsCarousel();
 // Setup carousels for both sections
 //setupSingleCardCarousel('blog-scroll', 'blog-left', 'blog-right');
 
-// === NGO Articles Carousel Logic (Revised) ===
 let ngoCurrentIndex = 0;
-let ngoAutoSlideInterval = null;
+let autoSlideInterval = null;
 
-function showNgoArticle(index) {
+function setupNgoCarousel() {
+  const track = document.getElementById('carouselTrack');
   const cards = document.querySelectorAll('#carouselTrack .article-card');
-  const dots = document.querySelectorAll('#dotsContainer .dot');
-  if (!cards.length) return;
-  ngoCurrentIndex = index;
-  if (ngoCurrentIndex < 0) ngoCurrentIndex = 0;
-  if (ngoCurrentIndex > cards.length - 1) ngoCurrentIndex = cards.length - 1;
-  cards.forEach((card, idx) => {
-    card.classList.toggle('active', idx === ngoCurrentIndex);
-  });
-  dots.forEach((dot, idx) => {
-    dot.classList.toggle('active', idx === ngoCurrentIndex);
-  });
-}
-
-function scrollNgoCarousel(direction) {
-  const cards = document.querySelectorAll('#carouselTrack .article-card');
-  showNgoArticle((ngoCurrentIndex + direction + cards.length) % cards.length);
-}
-
-function setupNgoArticlesCarousel() {
-  const cards = document.querySelectorAll('#carouselTrack .article-card');
-  const dotsContainer = document.getElementById('dotsContainer');
   const leftBtn = document.getElementById('article-left');
   const rightBtn = document.getElementById('article-right');
-  const carousel = document.querySelector('.article-carousel-section');
-  dotsContainer.innerHTML = '';
-  cards.forEach((_, idx) => {
-    const dot = document.createElement('button');
-    dot.className = 'dot' + (idx === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', 'Go to article ' + (idx + 1));
-    dot.addEventListener('click', () => {
-      showNgoArticle(idx);
-      resetNgoAutoSlide();
+  const dotsContainer = document.getElementById('dotsContainer');
+  const totalCards = cards.length;
+  const visibleCards = window.innerWidth <= 600 ? 1 : window.innerWidth <= 992 ? 2 : 3;
+  const maxIndex = Math.ceil(totalCards / visibleCards) - 1;
+
+  function updateCarousel(index) {
+    const cardWidth = cards[0].offsetWidth + 24; // card width + gap
+    track.style.transform = `translateX(-${index * (cardWidth * visibleCards)}px)`;
+    ngoCurrentIndex = index;
+    updateDots(index);
+  }
+
+  function updateDots(index) {
+    const dots = document.querySelectorAll('#dotsContainer .dot');
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
     });
-    dotsContainer.appendChild(dot);
-  });
-  leftBtn.onclick = () => { scrollNgoCarousel(-1); resetNgoAutoSlide(); };
-  rightBtn.onclick = () => { scrollNgoCarousel(1); resetNgoAutoSlide(); };
-  // Auto-slide logic
-  function startNgoAutoSlide() {
-    ngoAutoSlideInterval = setInterval(() => {
-      scrollNgoCarousel(1);
-    }, 5000);
   }
-  function stopNgoAutoSlide() {
-    clearInterval(ngoAutoSlideInterval);
+
+  function createDots() {
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i <= maxIndex; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => {
+        updateCarousel(i);
+        resetAutoSlide();
+      });
+      dotsContainer.appendChild(dot);
+    }
   }
-  function resetNgoAutoSlide() {
-    stopNgoAutoSlide();
-    startNgoAutoSlide();
+
+  function scrollCarousel(dir) {
+    ngoCurrentIndex = (ngoCurrentIndex + dir + maxIndex + 1) % (maxIndex + 1);
+    updateCarousel(ngoCurrentIndex);
   }
-  carousel.addEventListener('mouseenter', stopNgoAutoSlide);
-  carousel.addEventListener('mouseleave', startNgoAutoSlide);
-  // Show first card
-  showNgoArticle(0);
-  startNgoAutoSlide();
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(() => scrollCarousel(1), 5000);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+  }
+
+  function resetAutoSlide() {
+    stopAutoSlide();
+    startAutoSlide();
+  }
+
+  leftBtn.onclick = () => { scrollCarousel(-1); resetAutoSlide(); };
+  rightBtn.onclick = () => { scrollCarousel(1); resetAutoSlide(); };
+
+  createDots();
+  updateCarousel(0);
+  startAutoSlide();
+
+  document.querySelector('.article-carousel-section').addEventListener('mouseenter', stopAutoSlide);
+  document.querySelector('.article-carousel-section').addEventListener('mouseleave', startAutoSlide);
 }
+
+window.addEventListener('load', setupNgoCarousel);
+window.addEventListener('resize', setupNgoCarousel);
 
 // === Collaborators Carousel Logic ===
 let collaboratorsCurrentIndex = 0;
@@ -362,4 +371,3 @@ document.addEventListener('DOMContentLoaded', () => {
   setupFlipCards();
   setupSmoothScrolling();
 });
-  
