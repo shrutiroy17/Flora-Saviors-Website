@@ -5,27 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Flora Saviors</title>
   <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="campaigns.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
   <header>
     <div class="header-left">
-      <img src="image/logo.jpg" alt="Flora Saviors Logo" class="logo-img" />
+      <a href="#home">
+      <img src="./image/logo.jpg" alt="Flora Saviors Logo" class="logo-img" />
       <span class="logo-text">FLORA SAVIORS</span>
+    </a>
     </div>
     <nav>
       <a href="#home">Home</a>
       <a href="#about">About us</a>
       <a href="#footer-content">Contact</a>
-      <a href="./gift-a-tree.html" target="_blank" class="gift-tree-nav-btn">Gift a Tree</a>
+      <a href="./gift-a-tree.html" target="_blank" rel="noopener noreferrer" class="gift-tree-nav-btn">Gift a Tree</a>
       <button class="hamburger-menu" id="hamburgerMenu" aria-label="Open menu">&#9776;</button>
-      <button class="donate-btn">DONATE</button>
+      <button class="donate-btn"><a href="https://wa.me/917300623159?text=Hi%20I%20would%20like%20to%20donate%20to%20your%20NGO!" target="_blank">DONATE</a></button>
     </nav>
     <div class="mobile-nav-menu" id="mobileNavMenu">
       <a href="#home">Home</a>
       <a href="#about">About us</a>
       <a href="#footer-content">Contact</a>
-      <a href="./gift-a-tree.html" target="_blank" class="gift-tree-nav-btn">Gift a Tree</a>
+      <a href="./gift-a-tree.html" target="_blank" rel="noopener noreferrer" class="gift-tree-nav-btn">Gift a Tree</a>
     </div>
   </header>
 
@@ -55,7 +58,7 @@
         
 <button class="primary-btn"><a href="./Flora Newsletter.pdf" target="_blank" rel="noopener noreferrer">Learn More</a></button>      </div>
       <div class="about-img">
-        <img src="./image/IMG_8748.PNG" alt="About Planting" />
+        <img src="./image/about us.jpg" alt="About Planting" />
       </div>
     </div>
   </section>
@@ -66,11 +69,11 @@
     </div>
     <h3>JOIN OUR MISSION TO MAKE A DIFFERENCE</h3>
     <div class="cards-nav">
-      <button class="arrow-btn" id="campaign-left">&#8592;</button>
+      <button class="arrow-btn" id="campaign-left" aria-label="Scroll left">&#8592;</button>
       <div class="scroll-container" id="campaign-scroll">
         <div class="cards">
           <div class="card">
-            <img src="./articles/10k Trees.jpg" alt="Place 1">
+            <img src="./image/IMG_8748.PNG" alt="Place 1">
             <h4>Ferger Junior High School</h4>
             <p>Planted 30 saplings with Ferger Junior High School, Dehradun—grateful to inspire young minds!</p>
           </div>
@@ -91,7 +94,7 @@
           </div>
         </div>
       </div>
-      <button class="arrow-btn" id="campaign-right">&#8594;</button>
+      <button class="arrow-btn" id="campaign-right" aria-label="Scroll right">&#8594;</button>
     </div>
   </section>
 
@@ -113,7 +116,7 @@
           <a class="read-more-btn" href="https://www.instagram.com/p/CSDsMYSpOnc/?igsh=d3hmNXBsb2R1MjIw" target="_blank">Read More</a>
         </div>
         <div class="article-card">
-          <img src="./articles/10k Trees.jpg" alt="Tree Plantation Campaign">
+          <img src="./articles/10k in 100 days.jpg" alt="Tree Plantation Campaign">
           <h3>10,000 Trees in 100 Days</h3>
           <a class="read-more-btn" href="https://lifebeyondnumbers.com/flora-saviours-dehradun-plantation/" target="_blank">Read More</a>
         </div>
@@ -128,8 +131,8 @@
           <a class="read-more-btn" href="https://www.instagram.com/p/CjewMbzv5x-/?igsh=MWoxZThsbG0wYWN3ZA%3D%3D" target="_blank">Read More</a>
         </div>
         <div class="article-card">
-          <img src="./articles/Founder article.jpg" alt="Kimari Plantation Drive">
-          <h3>Article on the Founder</h3>
+          <img src="./articles/Founder article.jpg"Kimari Plantation Drive">
+          <h3>Kimari Plantation Drive</h3>
           <a class="read-more-btn" href="https://www.instagram.com/tv/CX6bDhSj_xB/?igsh=ejZxcjBpYmtrc3F4" target="_blank">Read More</a>
         </div>
         <div class="article-card">
@@ -138,7 +141,7 @@
           <a class="read-more-btn" href="https://www.instagram.com/p/CowPxalP_gx/?igsh=bWh0eTlnand4ejUz" target="_blank">Read More</a>
         </div>
         <div class="article-card">
-          <img src="./articles/India CSR.jpg" alt="India CSR & Sustainability Conclave">
+          <img src="./articles/India CSR sustainability.jpg" alt="India CSR & Sustainability Conclave">
           <h3>India CSR & Sustainability Conclave</h3>
           <a class="read-more-btn" href="https://youtu.be/r9eZ3Ab6fsQ?si=fg9klmAywUTSBEQ_" target="_blank">Read More</a>
         </div>
@@ -155,15 +158,15 @@
   
   <section class="help" id="help-section">
     <div class="help-img">
-      <img src="./image/volunteer.jpg" alt="Volunteer">
+      <img src="./image/volunteering.jpg" alt="Volunteer">
     </div>
     <div class="help-content">
       <h3>How You Can Help</h3>
       <p>There are countless ways you can help us in our quest for. You can make a donation (however big or small), join our fundraiser events, or volunteer your time or simply spread the word. Every action counts — let's grow a greener future together.</p>
       <div class="actions">
-        <button class="primary-btn">Donate</button>
-        <button class="primary-btn">Join</button>
-        <button class="primary-btn">Volunteer</button>
+        <a class="primary-btn" href="https://wa.me/917300623159?text=Hi%20I%20would%20like%20to%20donate%20to%20your%20NGO!" target="_blank">Donate Via WhatsApp</a>
+        <a class="primary-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSd2Ui86F2d7ReUbgmkkunTjEnKWEGb1grcXjLjqeyBOURSikA/viewform" target="_blank">Volunteer</a>
+        <a class="primary-btn" href="./gift-a-tree.html" target="_blank" rel="noopener noreferrer">Gift a Tree</a>
       </div>
     </div>
   </section>
@@ -179,9 +182,10 @@
         <div class="flip-card-inner">
           <div class="flip-card-front">
             <div class="team-member-image">
-              <img src="./image/member1.jpg" alt="Sandeep Chauhan">
+              <img src="./team img/Sandeep- founder.jpg" alt="Sandeep Chauhan">
             </div>
             <h4>Sandeep Chauhan</h4>
+            <h5>Founder</h5>
           </div>
           <div class="flip-card-back">
             <p>"I started Flora Saviors to raise awareness and take action."</p>
@@ -189,29 +193,17 @@
           </div>
         </div>
       </div>
-      
-      <div class="flip-card" data-member="3">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <div class="team-member-image">
-              <img src="./image/member3.jpg" alt="Arya Sharma">
-            </div>
-            <h4>Arya Sharma</h4>
-          </div>
-          <div class="flip-card-back">
-            <p>"Let's restore nature together, one step at a time."</p>
-            <a href="https://instagram.com/arya.eco.vibes" target="_blank" class="instagram-link">@arya.eco.vibes</a>
-          </div>
-        </div>
-      </div>
+    
 
       <div class="flip-card" data-member="2">
         <div class="flip-card-inner">
           <div class="flip-card-front">
             <div class="team-member-image">
-              <img src="./image/member2.jpg" alt="Anushka Bhandari">
+              <img src="./team img/Anushka.jpg" alt="Anushka Bhandari">
             </div>
             <h4>Anushka Bhandari</h4>
+            <h5>Manager</h5>
+
           </div>
           <div class="flip-card-back">
             <p>"Designing eco-solutions is my passion and purpose."</p>
@@ -225,7 +217,7 @@
   <section class="join-now">
     <div class="join-overlay">
       <h3>Let's Change the world, Join us now!</h3>
-      <p>Let's bring back the green glory of Dehradun! In 2021, our 'Reviving Doon Valley' mission sowed seeds of hope — but in 2025, we're determined to let them bloom. This monsoon, we aim to plant 10,000 native trees across the valley — not just to plant, but to nurture them over the next 3 years with dedicated care and commitment. With your support, we can make this dream a living, breathing reality.</p>
+      <p>Let's bring back the green glory of Dehradun! In 2021, our 'Reviving Doon Valley' mission sowed seeds of hope - but in 2025, we're determined to let them bloom. This monsoon, we aim to plant 10,000 trees across the valley - not just to plant, but to nurture them over the next 3 years with dedicated care and commitment. With your support, we can make this dream a living, breathing reality.</p>
     </div>
   </section>
 
