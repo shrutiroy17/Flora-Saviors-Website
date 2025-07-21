@@ -1,79 +1,5 @@
 // Single-card carousel logic for Campaigns and Blog sections
 console.log('index.js loaded');
-function setupSingleCardCarousel(scrollContainerId, leftBtnId, rightBtnId) {
-  const scrollContainer = document.getElementById(scrollContainerId);
-  const cards = scrollContainer.querySelectorAll('.card');
-  const leftBtn = document.getElementById(leftBtnId);
-  const rightBtn = document.getElementById(rightBtnId);
-  let currentIndex = 0;
-
-  function updateCarousel() {
-    cards.forEach((card, idx) => {
-      if (idx === currentIndex) {
-        card.classList.add('active');
-      } else {
-        card.classList.remove('active');
-      }
-    });
-  }
-
-  leftBtn.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateCarousel();
-    }
-  });
-
-  rightBtn.addEventListener('click', () => {
-    if (currentIndex < cards.length - 1) {
-      currentIndex++;
-      updateCarousel();
-    }
-  });
-
-  // Initialize
-  updateCarousel();
-}
-
-// Campaigns carousel: only one card visible at a time
-function setupCampaignsCarousel() {
-  const scrollContainer = document.getElementById('campaign-scroll');
-  const cards = Array.from(scrollContainer.querySelectorAll('.card'));
-  const leftBtn = document.getElementById('campaign-left');
-  const rightBtn = document.getElementById('campaign-right');
-  let currentIndex = 0;
-  const cardsPerView = 3;
-
-  function renderCarousel() {
-    // Remove all cards
-    const cardsContainer = scrollContainer.querySelector('.cards');
-    cardsContainer.innerHTML = '';
-    // Show 3 cards, wrapping around
-    for (let i = 0; i < cardsPerView; i++) {
-      const cardIndex = (currentIndex + i) % cards.length;
-      const cardClone = cards[cardIndex].cloneNode(true);
-      cardsContainer.appendChild(cardClone);
-    }
-  }
-
-  leftBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-    renderCarousel();
-  });
-
-  rightBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % cards.length;
-    renderCarousel();
-  });
-
-  // Initialize
-  renderCarousel();
-}
-
-setupCampaignsCarousel();
-
-// Setup carousels for both sections
-//setupSingleCardCarousel('blog-scroll', 'blog-left', 'blog-right');
 
 let ngoCurrentIndex = 0;
 let autoSlideInterval = null;
@@ -147,118 +73,6 @@ function setupNgoCarousel() {
 window.addEventListener('load', setupNgoCarousel);
 window.addEventListener('resize', setupNgoCarousel);
 
-// === Collaborators Carousel Logic ===
-let collaboratorsCurrentIndex = 0;
-let collaboratorsAutoSlideInterval = null;
-let collaboratorsPauseTimeout = null;
-
-function showCollaboratorsSlide(index) {
-  const track = document.querySelector('.collaborators-track');
-  const dots = document.querySelectorAll('#collaboratorsDots .dot');
-  const items = document.querySelectorAll('.collaborator-item');
-
-  const cardWidth = 250;
-  const gap = 32; // 2rem gap
-  const visibleCards = 4;
-  const totalCards = items.length;
-
-  // Only two valid positions: 0 (first 4), 4 (last 4)
-  let slideIndex = index === 0 ? 0 : totalCards - visibleCards;
-  collaboratorsCurrentIndex = slideIndex;
-
-  // Mobile: show only 4 as a 2x2 grid, hide others
-  if (window.innerWidth <= 600) {
-    items.forEach((item, idx) => {
-      if (idx >= slideIndex && idx < slideIndex + visibleCards) {
-        item.style.display = '';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-    // No transform on mobile
-    track.style.transform = 'none';
-  } else {
-    // Desktop: show all, use carousel transform
-    items.forEach(item => item.style.display = '');
-    const translateX = -(slideIndex * (cardWidth + gap));
-    track.style.transform = `translateX(${translateX}px)`;
-  }
-
-  // Update active dot
-  const activeDotIndex = slideIndex === 0 ? 0 : 1;
-  dots.forEach((dot, idx) => {
-    dot.classList.toggle('active', idx === activeDotIndex);
-  });
-}
-
-function scrollCollaboratorsCarousel(direction) {
-  // Toggle between 0 and 4 (first 4 and next 4)
-  if (collaboratorsCurrentIndex === 0) {
-    showCollaboratorsSlide(4);
-  } else {
-    showCollaboratorsSlide(0);
-  }
-}
-document.addEventListener('DOMContentLoaded', () => {
-  try {
-    console.log('DOMContentLoaded event fired');
-    setupNgoArticlesCarousel();
-    setupCollaboratorsCarousel();
-    setupFlipCards();
-    setupSmoothScrolling();
-  } catch (e) {
-    console.error('Error in DOMContentLoaded handler:', e);
-  }
-});
-function setupCollaboratorsCarousel() {
-  const items = document.querySelectorAll('.collaborator-item');
-  const dotsContainer = document.getElementById('collaboratorsDots');
-  const carousel = document.querySelector('.collaborators-carousel');
-
-  // Create dots
-  dotsContainer.innerHTML = '';
-  const totalDots = Math.ceil(items.length / 4);
-  for (let i = 0; i < totalDots; i++) {
-    const dot = document.createElement('button');
-    dot.className = 'dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-    dot.addEventListener('click', () => {
-      const targetIndex = i * 4;
-      showCollaboratorsSlide(targetIndex);
-      resetCollaboratorsAutoSlide();
-    });
-    dotsContainer.appendChild(dot);
-  }
-
-  // Auto-scroll logic
-  function startCollaboratorsAutoSlide() {
-    collaboratorsAutoSlideInterval = setInterval(() => {
-      if (collaboratorsCurrentIndex === 0) {
-        showCollaboratorsSlide(4);
-      } else {
-        showCollaboratorsSlide(0);
-      }
-      resetCollaboratorsAutoSlide(); // Always reset after scroll
-    }, 4000);
-  }
-
-  function stopCollaboratorsAutoSlide() {
-    clearInterval(collaboratorsAutoSlideInterval);
-  }
-
-  function resetCollaboratorsAutoSlide() {
-    stopCollaboratorsAutoSlide();
-    startCollaboratorsAutoSlide();
-  }
-
-  carousel.addEventListener('mouseenter', stopCollaboratorsAutoSlide);
-  carousel.addEventListener('mouseleave', startCollaboratorsAutoSlide);
-
-  collaboratorsCurrentIndex = 0;
-  showCollaboratorsSlide(0);
-  startCollaboratorsAutoSlide();
-}
-
 // Smooth Scrolling for Navigation
 function setupSmoothScrolling() {
   const navLinks = document.querySelectorAll('nav a[href^="#"]');
@@ -282,35 +96,29 @@ function setupSmoothScrolling() {
 
 // Flip Card Functionality
 function setupFlipCards() {
-  const flipCards = document.querySelectorAll('.flip-card');
-  
-  // Only add click handlers for mobile devices
-  if (window.innerWidth <= 767) {
-    flipCards.forEach(card => {
-      card.addEventListener('click', function() {
-        this.classList.toggle('flipped');
-      });
-    });
-  }
-  
-  // Handle window resize to add/remove click handlers
-  window.addEventListener('resize', function() {
-    flipCards.forEach(card => {
-      // Remove existing click listeners
-      card.replaceWith(card.cloneNode(true));
-    });
-    
-    // Re-select cards after cloning
-    const newFlipCards = document.querySelectorAll('.flip-card');
-    
-    if (window.innerWidth <= 767) {
-      newFlipCards.forEach(card => {
-        card.addEventListener('click', function() {
-          this.classList.toggle('flipped');
-        });
-      });
+  const teamGrid = document.querySelector('.team-grid');
+
+  function handleFlipCardClick(e) {
+    // Only on mobile (600px and below)
+    if (window.innerWidth > 600) return;
+    const card = e.target.closest('.flip-card');
+    if (card && teamGrid.contains(card)) {
+      card.classList.toggle('flipped');
     }
-  });
+  }
+
+  function updateFlipHandlers() {
+    if (window.innerWidth <= 600) {
+      teamGrid.addEventListener('click', handleFlipCardClick);
+    } else {
+      // On larger screens, remove click listener and any ".flipped" classes
+      document.querySelectorAll('.flip-card.flipped').forEach(card => card.classList.remove('flipped'));
+      teamGrid.removeEventListener('click', handleFlipCardClick);
+    }
+  }
+
+  updateFlipHandlers();
+  window.addEventListener('resize', updateFlipHandlers);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -366,8 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  setupNgoArticlesCarousel();
-  setupCollaboratorsCarousel();
   setupFlipCards();
   setupSmoothScrolling();
 });
