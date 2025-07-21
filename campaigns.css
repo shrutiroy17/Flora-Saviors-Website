@@ -1,0 +1,114 @@
+/*
+  ==============================================
+  CAMPAIGNS SECTION - OVERRIDE STYLES
+  This file provides the correct styles for the
+  campaigns section, overriding any conflicting
+  rules in the main stylesheet.
+  ==============================================
+*/
+
+/* General Section Styling */
+.campaigns {
+  padding: 4rem 1rem !important;
+  background-color: #f8f9fa !important;
+  text-align: center !important;
+}
+
+.campaigns .section-header {
+  justify-content: center !important;
+  margin-bottom: 1rem !important;
+}
+
+.campaigns h3 {
+  font-weight: 600 !important;
+  margin-bottom: 2.5rem !important;
+  color: #154e29 !important;
+  font-size: 2rem !important;
+}
+
+/* This is the main container for the grid */
+.campaigns .cards {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important; /* Always 2 columns */
+  gap: 20px !important;
+  max-width: 700px !important; /* Limit width on large screens */
+  margin: 0 auto !important; /* Center the grid */
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+/* Individual card styling */
+.campaigns .card {
+  display: flex !important;
+  flex-direction: column !important;
+  text-align: center !important;
+  background: #fff !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+  visibility: visible !important; /* Ensure it's visible */
+  opacity: 1 !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+}
+
+.campaigns .card img {
+  display: block !important; /* Fixes potential whitespace issues */
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 4 / 3 !important; /* Maintain aspect ratio */
+  object-fit: cover !important;
+  border-radius: 12px 12px 0 0 !important;
+  min-height: 80px !important; /* Ensure a minimum size */
+}
+
+.campaigns .card h4 {
+  font-size: 1.1rem !important;
+  color: #154e29 !important;
+  margin: 1rem 0 0.5rem !important;
+  padding: 0 0.5rem !important;
+}
+
+.campaigns .card p {
+  padding: 0 1rem 1.5rem !important;
+  flex-grow: 1 !important; /* Ensures cards in a row have same height */
+  font-size: 0.95rem !important;
+  color: #555 !important;
+  margin: 0 !important;
+}
+
+/* Ensure arrows are always hidden */
+.campaigns .arrow-btn {
+  display: none !important;
+}
+
+/* Unset conflicting container styles */
+.campaigns .cards-nav,
+.campaigns .scroll-container {
+  all: unset !important;
+}
+.campaigns .cards-nav {
+  max-width: 700px !important;
+  margin: 0 auto !important;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .campaigns {
+    padding: 2rem 1rem !important;
+  }
+  .campaigns .cards {
+    gap: 15px !important;
+  }
+  .campaigns h3 {
+    font-size: 1.5rem !important;
+  }
+  .campaigns .card h4 {
+    font-size: 0.9rem !important;
+  }
+  .campaigns .card p {
+    font-size: 0.85rem !important;
+  }
+} 
