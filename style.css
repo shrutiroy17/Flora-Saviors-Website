@@ -1780,3 +1780,51 @@ footer .credit {
     height: 1px !important;
   }
 }
+@media (max-width: 400px) {
+  header {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0.4rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .header-left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hamburger-menu {
+    font-size: 1.8rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  header nav {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0.4rem;
+  }
+
+  .donate-btn {
+    margin-top: 0px;
+    padding: 0.2rem 1.5rem;
+    font-size: 0.5rem;
+    border-radius: 20px;
+    align-self: center;
+  }
+
+  .donate-btn a {
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .gift-tree-nav-btn,
+  header nav a {
+    display: none !important;
+  }
+}
